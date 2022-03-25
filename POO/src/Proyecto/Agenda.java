@@ -136,10 +136,10 @@ public class Agenda{
 				do{
 					System.out.println ("introduzca la clave de telefono de la persona");
 					clave=Keyboard.readString();
-					if((clave.length() < 0) && (clave.length() > 3)){													//Compara si no es 10 para continuar
+					if((clave.length() < 0) || (clave.length() > 3)){													//Compara si no es 10 para continuar
 						System.out.println ("El numero de dijitos no cumple con los requisitos");		//si no lo es escribe este mensaje
 					}
-				}while((clave.length() < 0) && (clave.length() > 3));
+				}while((clave.length() < 0) || (clave.length() > 3));
 				
 				do{
 					System.out.println ("introduzca el numero de telefono de la persona");
