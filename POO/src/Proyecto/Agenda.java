@@ -97,10 +97,10 @@ public class Agenda{
 		do{
 			System.out.println ("Introduzca el sexo de la persona (H-Hombre, M-Mujer): ");
 			sexo=Keyboard.readChar();
-			if((sexo != 'H') && (sexo != 'M')){ //Compara si no es H o M para continuar
+			if((sexo != 'H') && (sexo != 'M')){ //Compara si no es H y M para continuar
 				System.out.println ("SOLO SE PERMITE H O M"); //Si lo es escribe este mensaje
 			}
-		}while((sexo != 'H') && (sexo != 'M'));
+		}while((sexo != 'H') && (sexo != 'M')); //Valida si el sexo es diferente a H y M, si es asi se repite el ciclo 
 		
 		//Guardar en una variable de la clase persona
 		Persona datosAP = new Persona(nombre, apellido, alias, sexo);
