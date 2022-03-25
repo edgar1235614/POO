@@ -227,7 +227,7 @@ public class Agenda{
 		//comprueba si hay personas con el mismo nombre o alias
 		int comprobar = 0;	
 		for(int i = 0; i<Contacto.getNoContactos() ;i++){     //uso de equals para comparar String de buscaNombre y el nombre de la lista
-			if(buscaNombre.equals(lista.get(i).getInfo().getNombre()) || (buscaNombre.equals(lista.get(i).getInfo().getAlias()))){
+			if(buscaNombre.equalsIgnoreCase(lista.get(i).getInfo().getNombre()) || (buscaNombre.equalsIgnoreCase(lista.get(i).getInfo().getAlias()))){
 				System.out.println(lista.get(i).toString());
 				comprobar = 2;
 			}
