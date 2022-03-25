@@ -13,26 +13,26 @@ import java.util.*;
 import java.util.ArrayList;
 public class Agenda{
 	public static void main(String[] args){
-		//inicio de variales y arreglos
+		//Inicio de variales y arreglos
 		int buscar;
 		Persona datosP [] = new Persona[10000];
 		Telefono datosT [] = new Telefono[10000];
 		
-		//datos por defecto de la clase personas
+		//Datos por defecto de la clase personas
 		datosP[0] = new Persona("Pedro", "Sanchez", "pepe", 'H');
 		datosP[1] = new Persona("Marifer", "Lopez", "Fer", 'M');
 		datosP[2] = new Persona("Carl", "Jackson", "Cj", 'H');
 		datosP[3] = new Persona("Maria", "Hernandez", "Mari", 'M');
 		datosP[4] = new Persona("Elizabeth", "Medina", "Eliza", 'M');
 		
-		//datos por defecto de la clase telefono
+		//Datos por defecto de la clase telefono
 		datosT[0] = new Telefono('M', 52, "309389185");
 		datosT[1] =	new Telefono('M', 93, "615732222");
 		datosT[2] =	new Telefono('F', 49, "308159562"); 
 		datosT[3] =	new Telefono('F', 52, "580258109");
 		datosT[4] =	new Telefono('M', 32, "696202398"); 
 		
-		//creacion de ArraysList para hacer una lista de contactos
+		//Creación de ArraysList para hacer una lista de contactos
 		ArrayList<Contacto> lista = new ArrayList<Contacto>();
 		
 		for(int i = 0; i<5; i++){
@@ -42,12 +42,12 @@ public class Agenda{
 		}
 		
 		do{
-			//seleccion de la accion a realizar a continuacion
+			//Selección de la accion a realizar a continuacion
 			System.out.println("==========================================================================================");
-			System.out.println ("¿que accion desea realizar? \n [1-agregar contacto \t \t ] \n [2-Listado por tipo de Telefono ] \n [3-buscar contacto \t \t ] \n [4-Mostrar directorio \t \t ] \n [5-Borrar contacto \t \t ] \n [6-Ordenar \t \t \t ] \n [7-Salir \t \t \t ]");
+			System.out.println ("¿Qué acción desea realizar? \n [1- Agregar contacto \t \t ] \n [2- Listado por tipo de Teléfono ] \n [3- Buscar contacto \t \t ] \n [4- Mostrar directorio \t \t ] \n [5- Borrar contacto \t \t ] \n [6- Ordenar \t \t \t ] \n [7- Salir \t \t \t ]");
 			buscar=Keyboard.readInt();
 
-			//introducir nuevo contacto
+			//Introducir nuevo contacto
 			switch (buscar){
 				case 1:
 					Contacto.setNoContactos(agregarContacto(lista));
