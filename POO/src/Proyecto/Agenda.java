@@ -1,6 +1,6 @@
 /*
 Integrantes del equipo:
--Carrasco Medina Carlos Iván
+-Carrasco Medina Carlos Iván crack
 -Escalante Guadarrama Jorge Eduardo
 -García Rosales Edgar Alan
 Programación Orientada a Objetos 24/02/2022
