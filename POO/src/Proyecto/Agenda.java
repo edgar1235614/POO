@@ -167,7 +167,7 @@ public class Agenda{
 		}
 		return Contacto.getNoContactos();
 	}
-	
+	//prueba cambio
 	//metodo para imprimir por tipo de telefono
 	public static void ImprimirPorTel(ArrayList <Contacto>lista){
 		System.out.println("==========================================================================================");
