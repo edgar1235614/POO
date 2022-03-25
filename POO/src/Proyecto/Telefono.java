@@ -9,11 +9,11 @@ Métodos: get y set para los atributos y toString.
 */
 public class Telefono{//Encabezado de la clase
 	//Atributos
-	private int clave;
+	private String clave;
 	private char tipo;
 	private String numero;
 	//Constructor con los 3 parametros para los atributos 
-	public Telefono(char tipo, int clave, String numero) {
+	public Telefono(char tipo, String clave, String numero) {
 		this.tipo = tipo;
 		this.clave = clave;
 		this.numero = numero;
@@ -33,11 +33,11 @@ public class Telefono{//Encabezado de la clase
 		this.tipo= tipo;
 	}
 	//Obtiene la clave del país +xx
-	public int getClave() {
+	public String getClave() {
 		return this.clave;
 	}
 	//Cambia el tipo de clave
-	public void setClave(int clave){
+	public void setClave(String clave){
 		this.clave = clave;
 	}
 	//Obtenie el numero del telefono
