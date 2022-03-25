@@ -50,26 +50,28 @@ public class Agenda{
 			//Introducir nuevo contacto
 			switch (buscar){
 				case 1:
+					//Metodo Agregar contacto en la lista
 					Contacto.setNoContactos(agregarContacto(lista));
 				break;
 				case 2:
-					//Buscar persona
+					//Metodo Imprimir lista por tipo Telefono
 					ImprimirPorTel(lista);
 				break;
 				case 3:
-					//Buscar persona
+					//Metodo Buscar persona de la lista
 					buscarPersona(lista);
 				break;
 				case 4:
-					//Mostrar lista de directorio completo
+					//Metodo Imprimir lista
 					imprimirDirectorio(lista);
 				break;
 				case 5:
-					//Eliminar un contacto del directorio
+					//Metodo Eliminar persona de la lista
 					Contacto.setNoContactos(eliminarPersona(lista));
 					imprimirDirectorio(lista);
 				break; 
 				case 6:
+					//Metodo Ordenar lista
 					lista = ordenarLista(lista);
 				break;
 			}
