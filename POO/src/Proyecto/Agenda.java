@@ -81,91 +81,79 @@ public class Agenda{
 	//Metodo para agregar una persona con una o dos personas.
 	public static int agregarContacto(ArrayList lista){
 		System.out.println("==========================================================================================");
-		String nombre, apellido, alias, numero;
+		String nombre, apellido, alias, numero, clave;
 		char sexo, tipoT;
-		int clave;
-		//Recolección de datos para realizar la lista para el uso de la clase Persona
-		System.out.println ("Introduzca el nombre de la persona: ");
+		//recoleccion de datos para realizar la lista para el uso de la clase Persona
+		System.out.println ("introduzca el nombre de la persona ");
 		nombre=Keyboard.readString();
 		
-		System.out.println ("Introduzca el apellido de la persona: ");
+		System.out.println ("introduzca el apellido de la persona ");
 		apellido=Keyboard.readString();	
 		
-		System.out.println ("Introduzca el alias de la persona: ");
+		System.out.println ("introduzca el alias de la persona ");
 		alias=Keyboard.readString();
 		
 		do{
-			System.out.println ("Introduzca el sexo de la persona (H-Hombre, M-Mujer): ");
+			System.out.println ("introduzca el sexo de la persona (H, M)");
 			sexo=Keyboard.readChar();
-			if((sexo != 'H') && (sexo != 'M')){ //Compara si no es H y M para continuar
-				System.out.println ("SOLO SE PERMITE H O M"); //Si lo es escribe este mensaje
+			if((sexo != 'H') && (sexo != 'M')){						//Compara si no es H o M para continuar
+				System.out.println ("SOlO SE PERMITE H O M");		//si lo es escribe este mensaje
 			}
-		}while((sexo != 'H') && (sexo != 'M')); //Valida si el sexo es diferente a H y M, si es asi se repite el ciclo 
+		}while((sexo != 'H') && (sexo != 'M'));
 		
-		//Guardar en una variable de la clase persona
+		//guardar en una variable de la clase persona
 		Persona datosAP = new Persona(nombre, apellido, alias, sexo);
 		
 		int noTelefono;
-		System.out.println ("Introduzca el numero de teléfonos que tiene la persona: ");
+		System.out.println ("introduzca el numero de telefonos que tiene la persona");
 		noTelefono=Keyboard.readInt();
 		Telefono datosAT[] = new Telefono[noTelefono];
 		if(noTelefono < 1){
-			Telefono datosATele = new Telefono('X', 00, "XXXXXXXXXX"); //Datos Agregar Telefono
+			Telefono datosATele = new Telefono('X', "XXX", "XXXXXXXXXX");		//Datos Agregar Telefono
 			Contacto contactos = new Contacto(datosAP, datosATele);
 			lista.add(contactos);
 		}
-		else if(noTelefono == 1){	
-			do{	
-				System.out.println ("Introduzca el tipo de teléfono de la persona (M-Movil, F-Fijo): ");
-				tipoT=Keyboard.readChar();
-				if((tipoT != 'M') && (tipoT != 'F')){ //Compara si no es M o F para continuar
-					System.out.println ("SOLO SE PERMITE M O F"); //Si no lo es escribe este mensaje
-				}
-			}while((tipoT != 'M') && (tipoT != 'F'));
-		
-			do{
-				System.out.println ("Introduzca la clave del teléfono de la persona: ");
-				clave=Keyboard.readInt();
-				if((clave > 999) || (clave < 0)){													//Compara si no es 10 para continuar
-					System.out.println ("El número de digitos no cumple con los requisitos"); //Si no lo es escribe este mensaje
-				}
-			}while((clave > 999) || (clave < 0));
-			
-			do{
-				System.out.println ("Introduzca el numero de telefono de la persona: ");
-				numero=Keyboard.readString();
-				if(numero.length() != 10){															//Compara si no es 10 para continuar
-					System.out.println ("El numero de digitos no cumple con los requisitos"); //Si no lo es escribe este mensaje
-				}
-			}while(numero.length() != 10);
-			
-			//Se guarda en una variable de la clase Telefono
-			Telefono datosATele = new Telefono(tipoT, clave, numero); //Datos Agregar Telefono
-			
-			Contacto contactos = new Contacto(datosAP, datosATele);
-			lista.add(contactos);
-		}
-		else{
+		else if(noTelefono >= 1){	
 			for(int i = 0; i<noTelefono; i++){
 				do{	
-					System.out.println ("Introduzca el tipo de teléfono de la persona (M-Movil, F-Fijo): ");
+					System.out.println ("introduzca el tipo de telefono de la persona(M-movil ,F-fijo)");
 					tipoT=Keyboard.readChar();
-					if((tipoT != 'M') && (tipoT != 'F')){ //Compara si no es M o F para continuar
-						System.out.println ("SOLO SE PERMITE M O F"); //Si lo es escribe este mensaje
+					if((tipoT != 'M') && (tipoT != 'F')){					//Compara si no es M o F para continuar
+						System.out.println ("SOlO SE PERMITE M O F");		//si no lo es escribe este mensaje
 					}
 				}while((tipoT != 'M') && (tipoT != 'F'));
+			
+				do{
+					System.out.println ("introduzca la clave de telefono de la persona");
+					clave=Keyboard.readString();
+					if((clave.length() < 0) && (clave.length() > 3)){													//Compara si no es 10 para continuar
+						System.out.println ("El numero de dijitos no cumple con los requisitos");		//si no lo es escribe este mensaje
+					}
+				}while((clave.length() < 0) && (clave.length() > 3));
 				
-				System.out.println ("Introduzca la clave de teléfono de la persona: ");
-				clave=Keyboard.readInt();
+				do{
+					System.out.println ("introduzca el numero de telefono de la persona");
+					numero=Keyboard.readString();
+					if(numero.length() != 10){															//Compara si no es 10 para continuar
+						System.out.println ("El numero de dijitos no cumple con los requisitos");		//si no lo es escribe este mensaje
+					}
+				}while(numero.length() != 10);
 				
-				System.out.println ("Introduzca el numero de teléfono de la persona: ");
-				numero=Keyboard.readString();
-				
-				//Se guarda en una variable de la clase Telefono
-				datosAT[i] = new Telefono(tipoT, clave, numero); //Datos Agregar Telefono
+				//se guarda en un arreglo de la clase Telefono si tiene mas de un telefono
+				if(noTelefono > 1){
+					datosAT[i] = new Telefono(tipoT, clave, numero);
+					if(i == noTelefono-1){
+						Contacto contactos = new Contacto(datosAP, datosAT);
+						lista.add(contactos);
+					}
+				}
+				else{
+					//se guarda en una variable de la clase Telefono
+					Telefono datosATele = new Telefono(tipoT, clave, numero);		//Datos Agregar Telefono
+					Contacto contactos = new Contacto(datosAP, datosATele);
+					lista.add(contactos);
+				}
 			}
-			Contacto contactos = new Contacto(datosAP, datosAT);
-			lista.add(contactos);	
 		}
 		return Contacto.getNoContactos();
 	}
