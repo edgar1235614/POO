@@ -169,8 +169,9 @@ public class Agenda{
 		}
 		return Contacto.getNoContactos();
 	}
-	//carlos
-	//EDGAR ALAN
+	// cambie todo edgar
+	//edgar 
+	//edgar
 	//metodo para imprimir por tipo de telefono
 	public static void ImprimirPorTel(ArrayList <Contacto>lista){
 		System.out.println("==========================================================================================");
