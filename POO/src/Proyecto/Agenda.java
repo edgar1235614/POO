@@ -93,7 +93,7 @@ public class Agenda{
 		
 		System.out.println ("Introduzca el alias de la persona: ");
 		alias=Keyboard.readString();
-		
+		//prueba simultanea
 		do{
 			System.out.println ("Introduzca el sexo de la persona (H-Hombre, M-Mujer): ");
 			sexo=Keyboard.readChar();
