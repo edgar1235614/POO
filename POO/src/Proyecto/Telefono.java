@@ -1,47 +1,51 @@
-// Declaracion de la clase Telefono.java contiene atributos tipo, clave, numero.
-/* Metodos: get/set para los atributos y toString*/
-package Proyecto;
-public class Telefono {
-	//atributos private
+/*
+Integrantes del equipo:
+-Carrasco Medina Carlos Iván
+-Escalante Guadarrama Jorge Eduardo
+-García Rosales Edgar Alan
+Programación Orientada a Objetos 24/03/2022
+Declaracion de la clase Telefono.java contiene atributos tipo, clave, numero.
+Métodos: get y set para los atributos y toString.
+*/
+public class Telefono{//Encabezado de la clase
+	//Atributos
 	private int clave;
 	private char tipo;
 	private String numero;
-	
-	// constructor con los 3 parametros para los atributos 
+	//Constructor con los 3 parametros para los atributos 
 	public Telefono(char tipo, int clave, String numero) {
 		this.tipo = tipo;
 		this.clave = clave;
 		this.numero = numero;
 	}
-	
+	//Método toString
 	@Override
 	public String toString(){
 		return "\t" +tipo+"\t" +clave +"\t" +numero;
 	}
-	//Obten el tipo de telefono(fijo "f" o m�vil "m".
+	//Metodos get y set
+	//Obtiene el tipo de telefono (Fijo "F" o Móvil "M")
 	public char getTipo() {
 		return this.tipo;
 	}
-	
+	//Cambia el tipo de telefono
 	public void setTipo(char tipo) {
 		this.tipo= tipo;
 	}
-	
-	//obten la clave del pa�s +xx
+	//Obtiene la clave del país +xx
 	public int getClave() {
 		return this.clave;
 	}
-	
+	//Cambia el tipo de clave
 	public void setClave(int clave){
 		this.clave = clave;
 	}
-	
-	//Obten el numero telefonico
+	//Obtenie el numero del telefono
 	public String getNumero(){
 		return this.numero;
 	}
-	
+	//Cambia el numero de telefono
 	public void setNumero(String numero){
 		this.numero = numero;
 	}
-} //fin de la clase
+}
