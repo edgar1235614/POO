@@ -40,12 +40,22 @@ public class Agenda{
 			lista.add(contactos);
 			System.out.println(lista.get(i).toString());
 		}
-		
+		//llamar al metodo menu
+		menu(lista);
+	}
+	//metodo para usar el menu
+	public static void menu(ArrayList lista){
+		int buscar;
 		do{
-			//Selección de la accion a realizar a continuacion
-			System.out.println("==========================================================================================");
-			System.out.println ("¿Qué acción desea realizar? \n [1- Agregar contacto \t \t ] \n [2- Listado por tipo de Teléfono ] \n [3- Buscar contacto \t \t ] \n [4- Mostrar directorio \t \t ] \n [5- Borrar contacto \t \t ] \n [6- Ordenar \t \t \t ] \n [7- Salir \t \t \t ]");
-			buscar=Keyboard.readInt();
+			//seleccion de la accion a realizar a continuacion
+			do{
+				System.out.println("==========================================================================================");
+				System.out.println ("¿que accion desea realizar? \n [1-agregar contacto \t \t ] \n [2-Listado por tipo de Telefono ] \n [3-buscar contacto \t \t ] \n [4-Mostrar directorio \t \t ] \n [5-Borrar contacto \t \t ] \n [6-Ordenar \t \t \t ] \n [7-Salir \t \t \t ]");
+				buscar=Keyboard.readInt();
+				if((buscar > 7) || (buscar < 1)){
+					System.out.println ("Por favor introduzca un numero en el rango");
+				}
+			}while((buscar > 7) || (buscar < 1));
 
 			//Introducir nuevo contacto
 			switch (buscar){
