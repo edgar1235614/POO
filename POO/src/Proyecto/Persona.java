@@ -32,27 +32,27 @@ public class Persona{//Encabezado de la clase Persona
 	public void setNombre(String nombre){
 		this.nombre = nombre;
 	}
-	// Obtiene el apellido de la persona
+	//Obtiene el apellido de la persona
 	public String getApellido(){
 		return this.apellido;
 	}
-	// Cambia el apellido de la persona
+	//Cambia el apellido de la persona
 	public void setApellido(String apellido){
 		this.apellido = apellido;
 	}
-	// Obtiene el alias de la persona
+	//Obtiene el alias de la persona
 	public String getAlias(){
 		return this.alias;
 	}
-	// Cambia el nombre de la persona
+	//Cambia el nombre de la persona
 	public void setAlias(String alias){
 		this.alias = alias;
 	}
-	// Obtiene el sexo de la persona 
+	//Obtiene el sexo de la persona 
 	public char getSexo(){
 		return this.sexo;
 	}
-	// Cambia el sexo de la persona
+	//Cambia el sexo de la persona
 	public void setSexo(char sexo){
 		this.sexo = sexo;
 	}
