@@ -93,7 +93,7 @@ public class Agenda{
 		
 		System.out.println ("Introduzca el alias de la persona: ");
 		alias=Keyboard.readString();
-		//prueba simultanea
+		
 		do{
 			System.out.println ("Introduzca el sexo de la persona (H-Hombre, M-Mujer): ");
 			sexo=Keyboard.readChar();
@@ -169,9 +169,7 @@ public class Agenda{
 		}
 		return Contacto.getNoContactos();
 	}
-	// cambie todo edgar
-	//edgar 
-	//edgar
+	
 	//metodo para imprimir por tipo de telefono
 	public static void ImprimirPorTel(ArrayList <Contacto>lista){
 		System.out.println("==========================================================================================");
@@ -333,4 +331,4 @@ public class Agenda{
 		return listaOrdenar;
 	}
 }
-//JOrge
+
