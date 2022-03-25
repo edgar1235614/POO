@@ -133,21 +133,44 @@ public class Agenda{
 					}
 				}while((tipoT != 'M') && (tipoT != 'F'));
 			
+				boolean esNumero = true;
 				do{
 					System.out.println ("introduzca la clave de telefono de la persona");
 					clave=Keyboard.readString();
-					if((clave.length() < 0) || (clave.length() > 3)){													//Compara si no es 10 para continuar
+					for (int j = 0; j < clave.length(); j++) {
+						if (Character.isDigit(clave.charAt(j))) {
+							esNumero = true;
+						}						//Comprueba si es un dijito
+						else{
+							esNumero = false;
+						}
+					}
+					if((clave.length() < 1) || (clave.length() > 3)){			//Compara si esta en el rango 1 a 3 para continuar
 						System.out.println ("El numero de dijitos no cumple con los requisitos");		//si no lo es escribe este mensaje
 					}
-				}while((clave.length() < 0) || (clave.length() > 3));
+					else if(esNumero == false){						//Mensaje si no esun dijito
+						System.out.println ("Solo se permiten dijitos");
+					}
+				}while((clave.length() < 1) || (clave.length() > 3) || (esNumero == false));
 				
 				do{
 					System.out.println ("introduzca el numero de telefono de la persona");
 					numero=Keyboard.readString();
+					for (int j = 0; j < numero.length(); j++) {
+						if (Character.isDigit(numero.charAt(j))){
+							esNumero = true;
+						}						//Comprueba si es un dijito
+						else{
+							esNumero = false;
+						}
+					}
 					if(numero.length() != 10){															//Compara si no es 10 para continuar
 						System.out.println ("El numero de dijitos no cumple con los requisitos");		//si no lo es escribe este mensaje
 					}
-				}while(numero.length() != 10);
+					else if(esNumero == false){
+						System.out.println ("Solo se permiten dijitos");					//Mensaje si no esun dijito
+					}
+				}while((numero.length() != 10) || (esNumero == false));
 				
 				//se guarda en un arreglo de la clase Telefono si tiene mas de un telefono
 				if(noTelefono > 1){
