@@ -269,14 +269,65 @@ public class Agenda{
 	//metodo para eliminar un contacto del directorio
 	public static int eliminarPersona(ArrayList lista){
 		System.out.println("==========================================================================================");
-		int borrar;
-		for(int i = 0; i<Contacto.getNoContactos(); i++){
-			System.out.println((i+1) +".- " +lista.get(i).toString());
-		}
-		System.out.println("Introduzca el numero del contacto que desea eliminar: ");
-		borrar = Keyboard.readInt();
+		String buscaNombre = "", buscaApellido = ""; 
+		int borrar[] = new int[Contacto.getNoContactos()];
+		int comprobar = 0, borrarPersona = 0;
+	
+		System.out.println("Introduzca el nombre del contacto que desea eliminar");
+		buscaNombre = Keyboard.readString();
 		
-		lista.remove(borrar-1);
+		for(int i = 0; i<Contacto.getNoContactos() ;i++){     //uso de equals para comparar String de buscaNombre y el nombre de la lista
+			if(buscaNombre.equalsIgnoreCase(lista.get(i).getInfo().getNombre())){
+				borrarPersona = i;
+				if(comprobar > 1){
+					borrar[comprobar] = borrarPersona;
+				}
+				comprobar++;
+			}
+			else if((i == (Contacto.getNoContactos()-1)) && (comprobar == 0)){
+				System.out.println("Ningun nombre coincide");
+			}
+		}
+		do{
+			if(comprobar>1) {
+				comprobar = 0;
+				System.out.println("Apellido de la persona");
+				buscaApellido=Keyboard.readString();
+				for (int j = 0; j < Contacto.getNoContactos(); j++) {
+					if(buscaApellido.equalsIgnoreCase(lista.get(j).getInfo().getApellido()) && buscaNombre.equalsIgnoreCase(lista.get(j).getInfo().getNombre())){
+						borrarPersona = j;
+						if(comprobar > 1){
+							borrar[comprobar] = borrarPersona;
+						}
+						comprobar++;
+					}
+					else if((j == (Contacto.getNoContactos()-1) && comprobar == 0) ){
+						System.out.println("Ningun apellido coincide");
+						comprobar = 431212;
+					}
+					else if(comprobar > 1){
+						comprobar = 431212;
+					}
+				}
+			}
+		}while(comprobar == 431212);
+		if(comprobar>1) {				//Como ultima opción imprime todos los nombres y apellidos que coinciden 
+			int busca = 0, x = 0;			
+			comprobar = 0;
+			for (int j = 0; j < Contacto.getNoContactos(); j++) {
+				if(buscaApellido.equalsIgnoreCase(lista.get(j).getInfo().getApellido()) && buscaNombre.equalsIgnoreCase(lista.get(j).getInfo().getNombre())){
+					System.out.println((x+1) +".-" +lista.get(j).toString());
+					borrar[x] = j;
+					x++;
+				}
+			}
+			System.out.println("Introduzca el numero de la persona que desea eliminar");  //Te pide que escojas el que hay que eliminar
+			busca=Keyboard.readInt();
+			borrarPersona = borrar[busca-1];
+		}
+		
+		System.out.println(lista.get(borrarPersona).toString());
+		lista.remove(borrarPersona);
 		Contacto.setNoContactos(Contacto.getNoContactos() - 1);
 		
 		return Contacto.getNoContactos();
@@ -317,39 +368,55 @@ public class Agenda{
 		Arrays.sort(nombres);
 		
 		//nuevo orden
+		int noRepetir = 0;
 		switch(filtroOrdenar){
 			case 1:
 				for(int i = 0; i<Contacto.getNoContactos() ;i++){
+					noRepetir = 0;
 					for(int j = 0; j<Contacto.getNoContactos() ;j++){
-						if(nombres[i].equals(lista.get(j).getInfo().getNombre())){
-							System.out.println(lista.get(j).toString());
-							listaOrdenar.add(lista.get(j));
+						if(nombres[i].equals(lista.get(j).getInfo().getNombre())){				//Comprueba cada nombre para ver si coincide con
+							System.out.println(lista.get(j).toString());						//El orden establecido y agrega su contacto a 
+							listaOrdenar.add(lista.get(j));										//Un arraysList ordenado
+							noRepetir++;
+							if(noRepetir == 2){
+								i++;
+							}
 						}
 					}
 				}
 			break;
 			case 2:
 				for(int i = 0; i<Contacto.getNoContactos() ;i++){
+					noRepetir = 0;
 					for(int j = 0; j<Contacto.getNoContactos() ;j++){
 						if(nombres[i].equals(lista.get(j).getInfo().getApellido())){
 							System.out.println(lista.get(j).toString());
 							listaOrdenar.add(lista.get(j));
+							oRepetir++;
+							if(noRepetir == 2){
+								i++;
+							}
 						}
 					}
 				}
 			break;
 			case 3:
 				for(int i = 0; i<Contacto.getNoContactos() ;i++){
+					noRepetir = 0;
 					for(int j = 0; j<Contacto.getNoContactos() ;j++){
 						if(nombres[i].equals(lista.get(j).getInfo().getAlias())){
 							System.out.println(lista.get(j).toString());
 							listaOrdenar.add(lista.get(j));
+							oRepetir++;
+							if(noRepetir == 2){
+								i++;
+							}
 						}
 					}
 				}
 			break;
 			}
-		return listaOrdenar;
+		return listaOrdenar; //Regresa el Arrayslist ordenado
 	}
 }
 
